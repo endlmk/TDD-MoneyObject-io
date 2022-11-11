@@ -11,3 +11,11 @@ describe(doller, Doller,
 		Doller clone setAmount(5) verify(equals (Doller clone setAmount(6)) not)
 	)
 )
+
+describe(franc, Franc,
+	franc("can multiply",
+		five := Franc clone setAmount(5)
+		five times(2) verify(equals (Franc clone setAmount(10)))
+		five times(3) verify(equals (Franc clone setAmount(15)))
+	)
+)

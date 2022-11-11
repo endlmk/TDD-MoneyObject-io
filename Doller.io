@@ -4,6 +4,6 @@ Doller := Object clone do(
 		Doller clone setAmount(amount * multiplier)
 	)
 	equals := method(obj,
-		obj amount == amount
+		(obj type == "Doller") and (obj amount == amount)
 	)
 )
