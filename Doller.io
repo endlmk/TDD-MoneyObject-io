@@ -1,9 +1,5 @@
-Doller := Object clone do(
-	amount ::= nil
+Doller := Money clone do(
 	times := method(multiplier,
 		Doller clone setAmount(amount * multiplier)
-	)
-	equals := method(obj,
-		(obj type == "Doller") and (obj amount == amount)
 	)
 )
