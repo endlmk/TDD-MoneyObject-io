@@ -2,26 +2,26 @@
 
 describe(money, Money,
 	money("has eqaulity",
-		Doller clone setAmount(5) verify(equals(Doller clone setAmount(5)))
-		Doller clone setAmount(5) verify(equals(Doller clone setAmount(6)) not)
-		Franc clone setAmount(5) verify(equals(Franc clone setAmount(5)))
-		Franc clone setAmount(5) verify(equals(Franc clone setAmount(6)) not)
-		Franc clone setAmount(5) verify(equals(Doller clone setAmount(5)) not)
+		Money dollar(5) verify(equals(Money dollar(5)))
+		Money dollar(5) verify(equals(Money dollar(6)) not)
+		Money franc(5) verify(equals(Money franc(5)))
+		Money franc(5) verify(equals(Money franc(6)) not)
+		Money franc(5) verify(equals(Money dollar(5)) not)
 	)
 )
 
-describe(doller, Doller,
-	doller("can multiply",
-		five := Doller clone setAmount(5)
-		five times(2) verify(equals (Doller clone setAmount(10)))
-		five times(3) verify(equals (Doller clone setAmount(15)))
+describe(dollar, Dollar,
+	dollar("can multiply",
+		five := Money dollar(5)
+		five times(2) verify(equals (Money dollar(10)))
+		five times(3) verify(equals (Money dollar(15)))
 	)
 )
 
 describe(franc, Franc,
 	franc("can multiply",
-		five := Franc clone setAmount(5)
-		five times(2) verify(equals(Franc clone setAmount(10)))
-		five times(3) verify(equals(Franc clone setAmount(15)))
+		five := Money franc(5)
+		five times(2) verify(equals(Money franc(10)))
+		five times(3) verify(equals(Money franc(15)))
 	)
 )
