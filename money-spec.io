@@ -15,4 +15,11 @@ describe(money, Money,
 		five times(2) verify(equals(Money dollar(10)))
 		five times(3) verify(equals(Money dollar(15)))
 	)
+	money("can add",
+		five := Money dollar(5)
+		sum := five plus(five)
+		bank := Bank clone
+		reduced := bank reduce(sum, "USD")
+		reduced verify(Money dollar(10))
+	)
 )

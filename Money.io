@@ -7,6 +7,9 @@ Money := Object clone do(
 	times := method(multiplier,
 		Money clone setAmount(amount * multiplier) setCurrency(currency)
 	)
+	plus := method(addend,
+		Money clone setAmount(amount + addend amount) setCurrency(currency)
+	)
 	dollar := method(amount,
 		Money clone setAmount(amount) setCurrency("USD")
 	)
