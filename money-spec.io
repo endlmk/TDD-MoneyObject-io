@@ -48,4 +48,12 @@ describe(money, Money,
 	money("identity rate",
 		Bank clone rate("USD", "USD") verify(== 1)
 	)
+	money("mixed addition",
+		fiveBucks := Money dollar(5)
+		tenFrancs := Money franc(10)
+		bank := Bank clone
+		bank addRate("CHF", "USD", 2)
+		result := bank reduce(fiveBucks plus(tenFrancs), "USD")
+		result verify(equals(Money dollar(10)))
+	)
 )
