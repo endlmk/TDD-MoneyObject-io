@@ -32,11 +32,20 @@ describe(money, Money,
 		sum := Sum clone setAugend(Money dollar(3)) setAddend(Money dollar(4))
 		bank := Bank clone
 		result := bank reduce(sum, "USD")
-		result verify(Money dollar(7))
+		result verify(equals(Money dollar(7)))
 	)
 	money("reduce money",
 		bank := Bank clone
 		result := bank reduce(Money dollar(1), "USD")
-		result verify(Money dollar(1))
+		result verify(equals(Money dollar(1)))
+	)
+	money("reduce money different currency",
+		bank := Bank clone
+		bank addRate("CHF", "USD", 2)
+		result := bank reduce(Money franc(2), "USD")
+		result verify(equals(Money dollar(1)))
+	)
+	money("identity rate",
+		Bank clone rate("USD", "USD") verify(== 1)
 	)
 )

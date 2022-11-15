@@ -10,8 +10,9 @@ Money := Object clone do(
 	plus := method(addend,
 		Sum clone setAugend(self) setAddend(addend)
 	)
-    reduce := method(to,
-        self
+    reduce := method(bank, to,
+		rate := bank rate(currency, to)
+        Money clone setAmount(amount / rate) setCurrency(to)
     )
 	dollar := method(amount,
 		Money clone setAmount(amount) setCurrency("USD")
