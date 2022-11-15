@@ -1,3 +1,0 @@
-Expression := Object clone do(
-    
-)

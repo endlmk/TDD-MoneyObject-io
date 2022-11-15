@@ -56,4 +56,22 @@ describe(money, Money,
 		result := bank reduce(fiveBucks plus(tenFrancs), "USD")
 		result verify(equals(Money dollar(10)))
 	)
+	money("sum plus money",
+		fiveBucks := Money dollar(5)
+		tenFrancs := Money franc(10)
+		bank := Bank clone
+		bank addRate("CHF", "USD", 2)
+		sum := Sum clone setAugend(fiveBucks) setAddend(tenFrancs) plus(fiveBucks)
+		result := bank reduce(sum, "USD")
+		result verify(equals(Money dollar(15)))
+	)
+	money("sum times",
+		fiveBucks := Money dollar(5)
+		tenFrancs := Money franc(10)
+		bank := Bank clone
+		bank addRate("CHF", "USD", 2)
+		sum := Sum clone setAugend(fiveBucks) setAddend(tenFrancs) times(2)
+		result := bank reduce(sum, "USD")
+		result verify(equals(Money dollar(20)))
+	)
 )
